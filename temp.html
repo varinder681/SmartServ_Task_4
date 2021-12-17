@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.2/chart.min.js"></script>
+    <style>
+        *{
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+    body {
+        background-color: rgb(231,231,231);
+    }
+    .container-top {
+        padding : 1% 3%;
+    }
+    .container-card {
+        display: flex;
+        margin-top: 2%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    .card {
+        background-color: white;
+        padding : 1% 2%;
+        width: 24%;
+        border-left: 5px solid #41BF99;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+        margin-bottom: 1%;
+    }
+    .container-chart {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        padding : 0 3% 1%;
+    }
+    .col {
+        width: 49%;
+    }
+    .chart_1, .chart_2 {
+        margin-top: 3%;
+        width: 100%;
+        display: inline-block;
+        background-color: white;
+        padding : 4% 3% 3%;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    }
+        
+    </style>
+</head>
+<body>
+
+    <div class="container-top">
+        <h4>Company Metrics</h4> 
+        <div class="container-card">
+            <div class="card">
+                <p>$406,411.29</p>
+                <p>Total Revenue</p>
+            </div>
+            <div class="card">
+                <p>$406,411.29</p>
+                <p>Total Revenue</p>
+            </div>
+            <div class="card">
+                <p>$406,411.29</p>
+                <p>Total Revenue</p>
+            </div>
+            <div class="card">
+                <p>$406,411.29</p>
+                <p>Total Revenue</p>
+            </div>
+            <div class="card">
+                <p>$406,411.29</p>
+                <p>Total Revenue</p>
+            </div>            <div class="card">
+                <p>$406,411.29</p>
+                <p>Total Revenue</p>
+            </div>            <div class="card">
+                <p>$406,411.29</p>
+                <p>Total Revenue</p>
+            </div>
+            <div class="card">
+                <p>$406,411.29</p>
+                <p>Total Revenue</p>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="container-chart">
+        <div class="col" >
+            <h4>Revenue by Job Location</h4>
+            <div class="chart_1">
+                <canvas id="myChart1"></canvas>
+            </div>
+        </div>
+
+        <div class="col" >
+            <h4>Revenue by Job Type</h4>
+            <div class="chart_2">
+                <canvas id="myChart2"></canvas>
+            </div>
+        </div>
+    </div>    
+<script>
+const ctx1 = document.getElementById('myChart1');
+const myChart = new Chart(ctx1, {
+    type: 'bar',
+    data: {
+        labels: ['Everett', 'Seattle', 'Lynnwood', 'Bothell', 'Mukilteo', 'Edmonds'],
+        datasets: [{
+            
+            data: [100000, 87000, 49000, 47000, 44000, 36000],
+            backgroundColor: [
+            'rgb(65,191,153)'
+            ],
+           
+            borderWidth: 1
+        }]
+    },
+    options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid : {
+                        display : false,
+                    },
+                    ticks : {
+                        color : "#000000"
+                    }
+                },
+                x : {
+                    title : {
+                        display : true,
+                        text : '$',
+                        color : '#000000',
+                        font : {
+                            weight : 'bold'
+                        }
+                    },
+                    ticks : {
+                        color : '#000000',
+                    }
+                    
+                }
+            },
+            categoryPercentage : 1,
+            barPercentage : .5,
+            indexAxis : 'y',
+            plugins: {
+                title: {
+                    position : "bottom",
+                    text : 'Revenue for November 2019',
+                    display  : true,
+                    color : '#000000'
+                },
+                legend : {
+                    display : false,
+                }
+            }
+        }
+    });
+    //here is the second chart
+const ctx2= document.getElementById('myChart2');
+const myChart2 = new Chart(ctx2, {
+    type: 'bar',
+    data: {
+        labels: ['Service Plumbing', 'Bid Work HVAC', 'Service HVAC', 'Bid Work Plumbing', 'HWT Replacement', 'Maintenance','Material Sale'],
+        datasets: [{
+            label: '# of Votes',
+            data: [200000, 130000, 87000, 85000, 48000, 45000,4000],
+            backgroundColor: [
+            'rgb(65,191,153)'
+            ],
+           
+            borderWidth: 1
+        }]
+    },
+    options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid : {
+                        display : false,
+                    },
+                    ticks : {
+                        color : '#000000',
+                    }
+                },
+                x : {
+                    title : {
+                        display : true,
+                        text : '$',
+                        color : "#000000",
+                        font : {
+                            weight : 'bold'
+                        }
+
+                    },
+                    ticks : {
+                        color : '#000000',
+                    }
+                }
+            },
+            categoryPercentage : 1,
+            barPercentage : .5,
+            indexAxis : 'y',
+            plugins: {
+                title: {
+                    position : "bottom",
+                    text : 'Revenue for November 2019',
+                    display  : true,
+                    color : '#000000'
+                },
+                legend : {
+                    display : false,
+                }
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
